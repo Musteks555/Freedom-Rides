@@ -1,0 +1,122 @@
+:root {
+    --main: #101828;
+    --main-text: #475467;
+    --button: #e44848;
+    --rating: #ffc531;
+    --block-features: #f2f4f7;
+    --inputs: #f7f7f7;
+    --background: #fff;
+
+    color: var(--main);
+    background-color: var(--background);
+
+    font-family: "Inter", sans-serif;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--main-white);
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .container {
+        min-width: 320px;
+        max-width: 375px;
+
+        padding: 16px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    .container {
+        max-width: 768px;
+
+        padding: 32px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1440px;
+
+        padding: 32px;
+    }
+}
