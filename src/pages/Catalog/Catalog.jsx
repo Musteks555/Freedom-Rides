@@ -1,12 +1,18 @@
+import CamperList from "../../components/CamperList/CamperList";
 import DocumentTitle from "../../components/DocumentTitle/DocumentTitle";
+import SideMenu from "../../components/SideMenu/SideMenu";
 
-// import css from './Catalog.module.css'
+import css from "./Catalog.module.css";
 
 const Catalog = () => {
     return (
         <>
-            <DocumentTitle>Favorites</DocumentTitle>
-            <div>Catalog</div>
+            <DocumentTitle>Catalog</DocumentTitle>
+
+            <div className={css.container}>
+                <SideMenu />
+                <CamperList />
+            </div>
         </>
     );
 };
