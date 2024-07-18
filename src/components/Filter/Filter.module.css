@@ -1,0 +1,33 @@
+.container {
+    width: 360px;
+
+    margin-bottom: 32px;
+}
+
+.container:last-child {
+    margin-bottom: 0;
+}
+
+.filterName {
+    color: var(--main);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+}
+
+.filterList {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px 8px;
+}
+
+.filterItem {
+    width: calc((100% - 20px) / 3);
+    height: 95px;
+}

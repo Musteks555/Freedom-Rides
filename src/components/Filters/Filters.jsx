@@ -1,12 +1,15 @@
 import Filter from "../Filter/Filter";
+
 import css from "./Filters.module.css";
 
 const Filters = () => {
     return (
-        <div>
-            <p>Filters</p>
+        <div className={css.container}>
+            <p className={css.menuType}>Filters</p>
 
-            <Filter type={"Vehicle equipment"} />
+            <Filter filterType={"vehicleEquipment"} />
+
+            <Filter filterType={"vehicleType"} />
         </div>
     );
 };

@@ -1,0 +1,38 @@
+.container {
+    margin-bottom: 32px;
+}
+
+.menuType {
+    color: var(--text-gray);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    margin-bottom: 8px;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 18px;
+
+    border-radius: 10px;
+    background: var(--inputs);
+}
+
+.input {
+    color: var(--main);
+    font-size: 16px;
+    line-height: 1.25;
+
+    border: none;
+    background-color: inherit;
+}
+
+.input:focus,
+.input:active {
+    outline: none;
+}

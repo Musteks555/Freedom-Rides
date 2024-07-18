@@ -2,10 +2,12 @@
     --main: #101828;
     --main-text: #475467;
     --button: #e44848;
+    --button-hover: #d84343;
     --rating: #ffc531;
     --block-features: #f2f4f7;
     --inputs: #f7f7f7;
     --background: #fff;
+    --text-gray: rgba(16, 24, 40, 0.6);
 
     color: var(--main);
     background-color: var(--background);
@@ -67,6 +69,7 @@ a {
 
 button {
     cursor: pointer;
+    padding: 0;
 }
 
 img {
@@ -117,6 +120,6 @@ body {
     .container {
         max-width: 1440px;
 
-        padding: 32px;
+        padding: 32px 64px;
     }
 }

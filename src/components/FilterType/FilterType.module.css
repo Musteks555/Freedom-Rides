@@ -1,0 +1,36 @@
+.filterBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 10px;
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    background-color: inherit;
+    mix-blend-mode: multiply;
+
+    transition: border-color 0.2s ease-in-out;
+}
+
+.filterBtn:hover,
+.filterBtn.active {
+    border-color: var(--button);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.text {
+    color: var(--main);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+}

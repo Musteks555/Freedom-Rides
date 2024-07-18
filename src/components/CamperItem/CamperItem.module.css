@@ -1,0 +1,159 @@
+.container {
+    display: flex;
+
+    gap: 24px;
+
+    padding: 24px;
+
+    border-radius: 20px;
+    border: 1px solid rgba(16, 24, 40, 0.2);
+
+    background: var(--background);
+}
+
+.image {
+    width: 290px;
+    height: 310px;
+
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+.infoHeader {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.infoHeaderTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.infoHeaderName {
+    color: var(--main);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.infoHeaderPriceContainer {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.infoHeaderPrice {
+    color: var(--main);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.infoHeaderLikeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background-color: inherit;
+}
+
+.infoHeaderLikeIcon {
+    stroke: var(--main);
+    fill: none;
+}
+
+.infoHeaderLikeBtn:hover .infoHeaderLikeIcon,
+.infoHeaderLikeBtn:focus .infoHeaderLikeIcon,
+.infoHeaderLikeBtn:active .infoHeaderLikeIcon,
+.infoHeaderLikeBtn.active .infoHeaderLikeIcon {
+    stroke: none;
+    fill: var(--button);
+}
+
+.infoHeaderSubTitle {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.infoHeaderSubTitleContainer {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+.infoHeaderRatingIcon {
+    fill: #ffc531;
+    stroke: none;
+}
+
+.infoHeaderSubTitleText {
+    color: var(--main);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.infoHeaderRatingText {
+    text-decoration-line: underline;
+}
+
+.infoDescription {
+    color: var(--main-text);
+    font-size: 16px;
+    line-height: 1.5;
+
+    width: 525px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.infoFeaturesList {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.infoBtn {
+    color: var(--background);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+
+    border: none;
+    border-radius: 200px;
+
+    background-color: var(--button);
+
+    padding: 16px 40px;
+
+    max-width: 166px;
+    width: 100%;
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+.infoBtn:hover,
+.infoBtn:active,
+.infoBtn:focus {
+    background-color: var(--button-hover);
+}
