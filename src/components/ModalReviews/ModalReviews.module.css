@@ -1,0 +1,80 @@
+.modalReviewsList {
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+
+    width: calc((100% - 24px) / 2);
+    max-height: 532px;
+
+    overflow-y: auto;
+}
+
+.modalReviewsItem {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.modalReviewHeaderContainer {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.modalReviewAvatar {
+    color: var(--button);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+
+    background: var(--block-features);
+
+    border-radius: 50%;
+}
+
+.modalReviewInfo {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.modalReviewName {
+    color: var(--main);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+}
+
+.modalReviewRatingContainer {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+.modalReviewRatingIcon {
+    fill: var(--block-features);
+    stroke: none;
+}
+
+.modalReviewRatingIconFill {
+    fill: #ffc531;
+    stroke: none;
+}
+
+.modalReviewComment {
+    color: var(--main-text);
+    font-size: 16px;
+    line-height: 1.5;
+}

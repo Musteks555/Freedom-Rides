@@ -1,0 +1,48 @@
+.modalDetailedContainer {
+    width: calc((100% - 24px) / 2);
+}
+
+.modalFeaturesList {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 44px;
+
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.modalDetailedTitle {
+    color: var(--main);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+}
+
+.modalDetailedList {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.modalDetailedItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modalDetailedItemText {
+    color: var(--main);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.33;
+}

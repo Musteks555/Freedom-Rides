@@ -1,0 +1,126 @@
+.modalFormContainer {
+    padding: 24px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(16, 24, 40, 0.2);
+
+    width: calc((100% - 24px) / 2);
+}
+
+.modalFormTitle {
+    color: var(--main);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+}
+
+.modalFormSubTitle {
+    color: var(--main-text);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.modalForm {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-top: 24px;
+}
+
+.modalForm .modalInput {
+    color: var(--main);
+    font-family: Inter;
+    font-size: 16px;
+    line-height: 1.25;
+
+    display: block;
+    width: 100%;
+
+    padding: 18px;
+
+    border: none;
+    border-radius: 10px;
+    background: var(--inputs);
+}
+
+.modalForm .modalInput::placeholder {
+    color: rgba(16, 24, 40, 0.6);
+    font-family: Inter;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.modalTextarea {
+    height: 114px;
+
+    resize: none;
+}
+
+.modalForm .modalCalendarIcon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    width: 20px;
+    height: 20px;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    padding: 0;
+    box-sizing: border-box;
+
+    cursor: pointer;
+}
+
+.modalDateContainer > div {
+    width: 100%;
+}
+
+.modalInputContainer {
+    position: relative;
+}
+
+.errorText {
+    color: var(--button);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+
+    position: absolute;
+    top: 0;
+
+    transform: translateY(-100%);
+}
+
+.modalBtn {
+    color: var(--background);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+
+    margin-top: 10px;
+    padding: 16px;
+
+    max-width: 160px;
+    width: 100%;
+
+    border: none;
+    border-radius: 200px;
+    background-color: var(--button);
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+.modalBtn:hover,
+.modalBtn:active,
+.modalBtn:focus {
+    background-color: #d84343;
+}

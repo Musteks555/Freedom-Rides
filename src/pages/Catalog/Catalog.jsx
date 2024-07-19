@@ -1,6 +1,7 @@
 import CamperList from "../../components/CamperList/CamperList";
 import DocumentTitle from "../../components/DocumentTitle/DocumentTitle";
 import SideMenu from "../../components/SideMenu/SideMenu";
+import ModalWrap from "../../Modal/Modal";
 
 import css from "./Catalog.module.css";
 
@@ -13,6 +14,8 @@ const Catalog = () => {
                 <SideMenu />
                 <CamperList />
             </div>
+
+            <ModalWrap />
         </>
     );
 };
