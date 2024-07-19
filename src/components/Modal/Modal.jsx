@@ -1,96 +1,40 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-modal";
 import clsx from "clsx";
 
-import ModalDetailedInfo from "../components/ModalDetailedInfo/ModalDetailedInfo";
-import ModalReviews from "../components/ModalReviews/ModalReviews";
-import ModalForm from "../components/ModalForm/ModalForm";
+import { closeModal } from "../../redux/modal/slice";
+import { selectModalCamper, selectModalState } from "../../redux/modal/selectors";
 
-import icons from "../images/icons.svg";
+import ModalDetailedInfo from "../ModalDetailedInfo/ModalDetailedInfo";
+import ModalReviews from "../ModalReviews/ModalReviews";
+import ModalForm from "../ModalForm/ModalForm";
+
+import icons from "../../images/icons.svg";
 
 import css from "./Modal.module.css";
 
 Modal.setAppElement("#root");
 
-const camperItem = {
-    _id: "4",
-    name: "Mighty Class C Large [MT]",
-    price: 12000,
-    rating: 4.4,
-    location: "Ukraine, Odesa",
-    adults: 4,
-    children: 2,
-    engine: "petrol",
-    transmission: "automatic",
-    form: "alcove",
-    length: "8.2m",
-    width: "3.04m",
-    height: "3.65m",
-    tank: "208l",
-    consumption: "25l/100km",
-    description:
-        "Embark on a grand adventure with the Mighty Class C Large [MT], a spacious and powerful alcove-style motorhome designed for larger groups and families. This RV is not just a mode of transportation but a mobile haven with ample space and premium amenities to ensure a comfortable and enjoyable journey through picturesque landscapes and charming destinations.",
-    details: {
-        airConditioner: 1,
-        bathroom: 1,
-        kitchen: 1,
-        beds: 4,
-        TV: 1,
-        CD: 1,
-        radio: 1,
-        shower: 1,
-        toilet: 1,
-        freezer: 1,
-        hob: 3,
-        microwave: 1,
-        gas: "27kg",
-        water: "151l",
-    },
-    gallery: [
-        "https://ftp.goit.study/img/campers-test-task/4-1.webp",
-        "https://ftp.goit.study/img/campers-test-task/4-2.webp",
-        "https://ftp.goit.study/img/campers-test-task/4-3.webp",
-    ],
-    reviews: [
-        {
-            reviewer_name: "Alice",
-            reviewer_rating: 5,
-            comment:
-                "The Mighty Class C Large [MT] provided an exceptional experience for our family road trip. Spacious interiors, well-equipped kitchen, and comfortable beds made our journey memorable. Highly recommended for larger groups looking for a premium RV.",
-        },
-        {
-            reviewer_name: "Bob",
-            reviewer_rating: 3,
-            comment:
-                "Decent motorhome, but had some issues with functionality. The kitchen facilities were good, but the gas supply seemed insufficient. Overall, a satisfactory experience for our group.",
-        },
-        {
-            reviewer_name: "Bob",
-            reviewer_rating: 3,
-            comment:
-                "Decent motorhome, but had some issues with functionality. The kitchen facilities were good, but the gas supply seemed insufficient. Overall, a satisfactory experience for our group.",
-        },
-        {
-            reviewer_name: "Bob",
-            reviewer_rating: 3,
-            comment:
-                "Decent motorhome, but had some issues with functionality. The kitchen facilities were good, but the gas supply seemed insufficient. Overall, a satisfactory experience for our group.",
-        },
-    ],
-};
-
 const ModalWrap = () => {
-    const [isOpen, setIsOpen] = useState(true);
     const [activeTab, setActiveTab] = useState("features");
 
-    function closeModal() {
-        setIsOpen(false);
-    }
+    const dispatch = useDispatch();
+
+    const isOpen = useSelector(selectModalState);
+    const camperItem = useSelector(selectModalCamper);
+
+    if (!isOpen) return null;
+
+    const handleClose = () => {
+        dispatch(closeModal());
+        setActiveTab("features");
+    };
 
     return (
         <Modal
             isOpen={isOpen}
-            onRequestClose={closeModal}
+            onRequestClose={handleClose}
             shouldCloseOnEsc={true}
             shouldCloseOnOverlayClick={true}
             overlayClassName={css.overlay}
@@ -101,7 +45,7 @@ const ModalWrap = () => {
                     <div className={css.modalHeaderTitle}>
                         <p className={css.modalHeaderName}>{camperItem.name}</p>
 
-                        <button type="button" className={css.modalCloseBtn} onClick={closeModal}>
+                        <button type="button" className={css.modalCloseBtn} onClick={handleClose}>
                             <svg className={css.modalCloseBtnIcon} width="32" height="32">
                                 <use href={`${icons}#icon-close`}></use>
                             </svg>
@@ -165,7 +109,7 @@ const ModalWrap = () => {
                 </nav>
 
                 <div className={css.modalInfoContainer}>
-                    {activeTab === "features" ? <ModalDetailedInfo camperItem={camperItem} /> : <ModalReviews camperItem={camperItem} />}
+                    {activeTab === "features" ? <ModalDetailedInfo /> : <ModalReviews />}
 
                     <ModalForm />
                 </div>

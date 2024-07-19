@@ -1,12 +1,16 @@
+import { useSelector } from "react-redux";
 import { nanoid } from "nanoid";
+
+import { selectModalCamper } from "../../redux/modal/selectors";
 
 import { firstLetter } from "../../helpers/heplers";
 
 import icons from "../../images/icons.svg";
-
 import css from "./ModalReviews.module.css";
 
-const ModalReviews = ({ camperItem }) => {
+const ModalReviews = () => {
+    const camperItem = useSelector(selectModalCamper);
+
     const renderStars = (rating) => {
         return Array.from({ length: 5 }, (_, index) => (
             <li key={index}>

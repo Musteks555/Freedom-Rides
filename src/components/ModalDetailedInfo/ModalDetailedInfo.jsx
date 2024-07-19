@@ -1,10 +1,16 @@
+import { useSelector } from "react-redux";
+
+import { selectModalCamper } from "../../redux/modal/selectors";
+
 import FeaturesItem from "../FeaturesItem/FeaturesItem";
 
 import { addSpace, capitalizeFirstLetter } from "../../helpers/heplers";
 
 import css from "./ModalDetailedInfo.module.css";
 
-const ModalDetailedInfo = ({ camperItem }) => {
+const ModalDetailedInfo = () => {
+    const camperItem = useSelector(selectModalCamper);
+
     return (
         <div className={css.modalDetailedContainer}>
             <ul className={css.modalFeaturesList}>

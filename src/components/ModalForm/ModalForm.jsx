@@ -1,22 +1,43 @@
+import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import clsx from "clsx";
+
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { formatDate } from "../../helpers/heplers";
 
 import icons from "../../images/icons.svg";
-
+import clsx from "clsx";
 import css from "./ModalForm.module.css";
 
+const schema = Yup.object().shape({
+    name: Yup.string().required("Name is required!").min(2, "Name must be at least 2 characters").max(30, "Too long characters!"),
+    email: Yup.string()
+        .required("Email is required")
+        .email("Invalid email")
+        .matches(/^[^@]+@[^@]+\.[^@]+$/, "Email must be valid"),
+    bookingDate: Yup.date().required("Booking date is required").min(new Date(), "Booking date cannot be in the past"),
+    comment: Yup.string().max(500, "Too long characters!"),
+});
+
 const ModalForm = () => {
+    const [minDate] = useState(new Date());
+
     const {
         register,
         handleSubmit,
         control,
         formState: { errors },
-    } = useForm();
+    } = useForm({
+        resolver: yupResolver(schema),
+    });
 
     const onSubmit = (data) => {
-        console.log(data);
+        const formattedDate = formatDate(data.bookingDate);
+        console.log({ ...data, bookingDate: formattedDate });
     };
 
     return (
@@ -58,6 +79,7 @@ const ModalForm = () => {
                                     onChange={(date) => field.onChange(date)}
                                     selected={field.value}
                                     className={css.modalInput}
+                                    minDate={minDate}
                                     showIcon
                                     toggleCalendarOnIconClick
                                     icon={
@@ -65,6 +87,7 @@ const ModalForm = () => {
                                             <use href={`${icons}#icon-calendar`}></use>
                                         </svg>
                                     }
+                                    dateFormat="dd.MM.yyyy"
                                 />
                             )}
                         />

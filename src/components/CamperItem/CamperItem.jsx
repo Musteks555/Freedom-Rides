@@ -1,11 +1,20 @@
+import { useDispatch } from "react-redux";
 import clsx from "clsx";
 
-import icons from "../../images/icons.svg";
+import { openModal } from "../../redux/modal/slice";
 
-import css from "./CamperItem.module.css";
 import FeaturesItem from "../FeaturesItem/FeaturesItem";
 
+import icons from "../../images/icons.svg";
+import css from "./CamperItem.module.css";
+
 const CamperItem = ({ camperProps }) => {
+    const dispatch = useDispatch();
+
+    const handleShowMore = () => {
+        dispatch(openModal(camperProps));
+    };
+
     return (
         <div className={css.container}>
             <img src={camperProps.gallery[0]} alt={camperProps.name} className={css.image} />
@@ -75,7 +84,7 @@ const CamperItem = ({ camperProps }) => {
                     </li>
                 </ul>
 
-                <button type="button" className={css.infoBtn}>
+                <button type="button" className={css.infoBtn} onClick={handleShowMore}>
                     Show more
                 </button>
             </div>

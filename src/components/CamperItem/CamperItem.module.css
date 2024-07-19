@@ -44,6 +44,12 @@
     font-size: 24px;
     font-weight: 600;
     line-height: 1.25;
+
+    max-width: 375px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .infoHeaderPriceContainer {
