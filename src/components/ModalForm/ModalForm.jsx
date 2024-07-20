@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { formatDate } from "../../helpers/heplers";
+import { errorToast } from "../../helpers/toast";
 
 import icons from "../../images/icons.svg";
 import clsx from "clsx";
@@ -36,8 +36,11 @@ const ModalForm = () => {
     });
 
     const onSubmit = (data) => {
-        const formattedDate = formatDate(data.bookingDate);
-        console.log({ ...data, bookingDate: formattedDate });
+        try {
+            window.location.reload();
+        } catch (error) {
+            errorToast("Failed to book. Please try again.");
+        }
     };
 
     return (
