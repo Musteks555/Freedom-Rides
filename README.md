@@ -1,8 +1,44 @@
-# React + Vite
+# Freedom-Rides
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Freedom-Rides is a project for renting campers.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+
+## Installation
+
+To install dependencies, run the following command:
+
+```bash
+npm i
+```
+
+## Usage
+
+To start the project, use:
+
+```bash
+npm run dev
+```
+
+The project will be available at http://localhost:3000.
+
+## Features
+
+- Rent campers;
+- Browse available options;
+- Filter by different criteria (This feature is under development and will be available soon);
+- User-friendly interface.
+
+## Project Structure
+
+- src/: Contains the source code of the project
+
+## Contributing
+
+Currently, this project is developed and maintained solely by me.
