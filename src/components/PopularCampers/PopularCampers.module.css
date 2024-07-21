@@ -1,0 +1,45 @@
+.popularCampers {
+    margin-top: 32px;
+}
+
+.heading {
+    color: var(--main);
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.campersList {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+}
+
+.camperCard {
+    width: calc((100% - 48px) / 3);
+
+    background: var(--inputs);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    padding-bottom: 12px;
+}
+
+.camperImage {
+    width: 100%;
+    height: auto;
+}
+
+.camperName {
+    color: var(--main);
+    text-align: center;
+
+    margin-top: 12px;
+}
+
+.camperPrice {
+    color: var(--main-text);
+    text-align: center;
+
+    margin-top: 12px;
+}

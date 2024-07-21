@@ -1,0 +1,21 @@
+.banner {
+    color: var(--background);
+
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.bannerTitle {
+    font-size: 48px;
+    margin: 0;
+
+    text-align: center;
+}
+
+.bannerDescription {
+    font-size: 20px;
+    margin-top: 18px;
+
+    text-align: center;
+}

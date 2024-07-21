@@ -1,0 +1,36 @@
+.specialOffers {
+    margin-top: 32px;
+}
+
+.heading {
+    color: var(--main);
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.offerList {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.offerItem {
+    background: var(--inputs);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    padding: 16px;
+}
+
+.offerTitle {
+    color: var(--main);
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+.offerDescription {
+    color: var(--main-text);
+    font-size: 16px;
+}
