@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import clsx from "clsx";
 
 import { openModal } from "../../redux/modal/slice";
-
 import FeaturesItem from "../FeaturesItem/FeaturesItem";
 
 import icons from "../../images/icons.svg";
@@ -11,8 +11,29 @@ import css from "./CamperItem.module.css";
 const CamperItem = ({ camperProps }) => {
     const dispatch = useDispatch();
 
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    useEffect(() => {
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        setIsFavorite(favorites.includes(camperProps._id));
+    }, [camperProps._id]);
+
     const handleShowMore = () => {
         dispatch(openModal(camperProps));
+    };
+
+    const handleLikeToggle = () => {
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        if (favorites.includes(camperProps._id)) {
+            const updatedFavorites = favorites.filter((id) => id !== camperProps._id);
+            localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+            setIsFavorite(false);
+        } else {
+            favorites.push(camperProps._id);
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+            setIsFavorite(true);
+        }
     };
 
     return (
@@ -27,7 +48,11 @@ const CamperItem = ({ camperProps }) => {
                         <div className={css.infoHeaderPriceContainer}>
                             <p className={css.infoHeaderPrice}>€{camperProps.price}</p>
 
-                            <button type="button" className={css.infoHeaderLikeBtn}>
+                            <button
+                                type="button"
+                                className={clsx(css.infoHeaderLikeBtn, { [css.active]: isFavorite })}
+                                onClick={handleLikeToggle}
+                            >
                                 <svg className={css.infoHeaderLikeIcon} width="24" height="24">
                                     <use href={`${icons}#icon-like`}></use>
                                 </svg>

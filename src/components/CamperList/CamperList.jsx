@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectCampers, selectCurrentPage, selectLoading } from "../../redux/campers/selectors";
 import { setPage } from "../../redux/campers/slice";
+import { fetchCampers } from "../../redux/campers/operations";
 
 import CamperItem from "../CamperItem/CamperItem";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
@@ -21,14 +22,20 @@ const CamperList = () => {
     const [isButtonVisible, setButtonVisible] = useState(true);
 
     useEffect(() => {
-        if (camperList.length < 4) {
-            setButtonVisible(false);
-
-            if (camperList.length === 0 && currentPage > 1) {
-                errorToast("No more items to load");
-            }
-        }
-    }, [currentPage, camperList.length]);
+        dispatch(fetchCampers({ page: currentPage, limit: 4 }))
+            .unwrap()
+            .then((data) => {
+                if (data.items.length < 4) {
+                    setButtonVisible(false);
+                }
+                if (data.items.length === 0 && currentPage > 1) {
+                    errorToast("No more items to load");
+                }
+            })
+            .catch((error) => {
+                errorToast("Error fetching campers: ", error);
+            });
+    }, [dispatch, currentPage]);
 
     const handleLoadMore = () => {
         dispatch(setPage(currentPage + 1));
