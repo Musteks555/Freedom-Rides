@@ -22,8 +22,6 @@
     transition: border-color 0.2s ease-in-out;
 }
 
-.btn:hover,
-.btn:active,
-.btn:focus {
+.btn:hover {
     border-color: var(--button);
 }

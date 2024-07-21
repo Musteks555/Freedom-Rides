@@ -119,8 +119,6 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-.modalBtn:hover,
-.modalBtn:active,
-.modalBtn:focus {
+.modalBtn:hover {
     background-color: #d84343;
 }

@@ -1,4 +1,4 @@
-.filterBtn {
+.filterLabel {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,10 +12,20 @@
     mix-blend-mode: multiply;
 
     transition: border-color 0.2s ease-in-out;
+
+    cursor: pointer;
 }
 
-.filterBtn:hover,
-.filterBtn.active {
+.filterInput {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+}
+
+.filterLabel:hover,
+.filterLabel.active {
     border-color: var(--button);
 }
 

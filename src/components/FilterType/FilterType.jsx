@@ -2,9 +2,18 @@ import icons from "../../images/icons.svg";
 
 import css from "./FilterType.module.css";
 
-const FilterType = ({ img, type, size }) => {
+const FilterType = ({ img, type, value, size, filterType, isChecked, onChange }) => {
     return (
-        <button type="button" className={css.filterBtn}>
+        <label className={`${css.filterLabel} ${isChecked ? css.active : ""}`}>
+            <input
+                type={filterType === "vehicleType" ? "radio" : "checkbox"}
+                name={filterType}
+                checked={isChecked}
+                onChange={onChange}
+                className={css.filterInput}
+                value={value}
+            />
+
             <div className={css.container}>
                 <svg className={css.icon} width={size.width} height={size.height}>
                     <use href={`${icons}#${img}`}></use>
@@ -12,7 +21,7 @@ const FilterType = ({ img, type, size }) => {
 
                 <p className={css.text}>{type}</p>
             </div>
-        </button>
+        </label>
     );
 };
 

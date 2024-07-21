@@ -7,7 +7,7 @@ const handlePending = (state) => {
     state.error = null;
 };
 
-const handleFulfilled = (state) => {
+const handleFulfilled = (state, action) => {
     state.loading = false;
     state.error = null;
 };

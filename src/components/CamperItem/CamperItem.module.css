@@ -81,8 +81,6 @@
 }
 
 .infoHeaderLikeBtn:hover .infoHeaderLikeIcon,
-.infoHeaderLikeBtn:focus .infoHeaderLikeIcon,
-.infoHeaderLikeBtn:active .infoHeaderLikeIcon,
 .infoHeaderLikeBtn.active .infoHeaderLikeIcon {
     stroke: none;
     fill: var(--button);
@@ -158,8 +156,6 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-.infoBtn:hover,
-.infoBtn:active,
-.infoBtn:focus {
+.infoBtn:hover {
     background-color: var(--button-hover);
 }

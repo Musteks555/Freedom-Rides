@@ -18,7 +18,7 @@ const Catalog = () => {
     const isLoading = useSelector(selectLoading);
 
     useEffect(() => {
-        dispatch(fetchCampers());
+        dispatch(fetchCampers({ page: 1, limit: 4 }));
     }, [dispatch]);
 
     return (
