@@ -10,7 +10,7 @@ To install dependencies, run the following command:
 npm i
 ```
 
-## Installation
+## Usage
 
 To start the project, use:
 
