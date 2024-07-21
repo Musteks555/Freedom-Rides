@@ -2,6 +2,14 @@
 
 Freedom-Rides is a project for renting campers.
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+
 ## Installation
 
 To install dependencies, run the following command:
