@@ -7,15 +7,36 @@ const Header = () => {
         <header className={css.header}>
             <ul className={css.headerContainer}>
                 <li>
-                    <NavLink to={"/"}>Home</NavLink>
+                    <NavLink
+                        to={"/"}
+                        style={({ isActive }) => ({
+                            color: isActive ? "var(--button)" : "inherit",
+                        })}
+                    >
+                        Home
+                    </NavLink>
                 </li>
 
                 <li>
-                    <NavLink to={"/catalog"}>Catalog</NavLink>
+                    <NavLink
+                        to={"/catalog"}
+                        style={({ isActive }) => ({
+                            color: isActive ? "var(--button)" : "inherit",
+                        })}
+                    >
+                        Catalog
+                    </NavLink>
                 </li>
 
                 <li>
-                    <NavLink to={"/favorites"}>Favorites</NavLink>
+                    <NavLink
+                        to={"/favorites"}
+                        style={({ isActive }) => ({
+                            color: isActive ? "var(--button)" : "inherit",
+                        })}
+                    >
+                        Favorites
+                    </NavLink>
                 </li>
             </ul>
         </header>

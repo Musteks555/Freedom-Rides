@@ -7,7 +7,7 @@ const handlePending = (state) => {
     state.error = null;
 };
 
-const handleFulfilled = (state, action) => {
+const handleFulfilled = (state) => {
     state.loading = false;
     state.error = null;
 };
@@ -24,6 +24,7 @@ const campersSlice = createSlice({
         loading: false,
         error: null,
         currentPage: 1,
+        hasLoaded: false,
     },
     reducers: {
         setPage: (state, action) => {
@@ -37,6 +38,7 @@ const campersSlice = createSlice({
                 handleFulfilled(state);
                 state.items = [...state.items, ...action.payload.items];
                 state.currentPage = action.payload.page;
+                state.hasLoaded = true;
             })
             .addCase(fetchCampers.rejected, handleRejected),
 });

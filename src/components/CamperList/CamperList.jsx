@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectCampers, selectCurrentPage, selectLoading } from "../../redux/campers/selectors";
@@ -8,6 +8,7 @@ import { fetchCampers } from "../../redux/campers/operations";
 import CamperItem from "../CamperItem/CamperItem";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import Loader from "../Loader/Loader";
+
 import { errorToast } from "../../helpers/toast";
 
 import css from "./CamperList.module.css";
@@ -21,24 +22,22 @@ const CamperList = () => {
 
     const [isButtonVisible, setButtonVisible] = useState(true);
 
-    useEffect(() => {
-        dispatch(fetchCampers({ page: currentPage, limit: 4 }))
-            .unwrap()
-            .then((data) => {
-                if (data.items.length < 4) {
-                    setButtonVisible(false);
-                }
-                if (data.items.length === 0 && currentPage > 1) {
-                    errorToast("No more items to load");
-                }
-            })
-            .catch((error) => {
-                errorToast("Error fetching campers: ", error);
-            });
-    }, [dispatch, currentPage]);
+    const handleLoadMore = async () => {
+        try {
+            dispatch(setPage(currentPage + 1));
 
-    const handleLoadMore = () => {
-        dispatch(setPage(currentPage + 1));
+            const newPage = currentPage + 1;
+            const data = await dispatch(fetchCampers({ page: newPage, limit: 4 })).unwrap();
+
+            if (data.items.length < 4) {
+                setButtonVisible(false);
+            }
+            if (data.items.length === 0 && newPage > 1) {
+                errorToast("No more items to load");
+            }
+        } catch (error) {
+            errorToast("Error fetching campers: ", error);
+        }
     };
 
     return (
