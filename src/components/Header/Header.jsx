@@ -9,6 +9,7 @@ const Header = () => {
                 <li>
                     <NavLink
                         to={"/"}
+                        className={css.link}
                         style={({ isActive }) => ({
                             color: isActive ? "var(--button)" : "inherit",
                         })}
@@ -20,6 +21,7 @@ const Header = () => {
                 <li>
                     <NavLink
                         to={"/catalog"}
+                        className={css.link}
                         style={({ isActive }) => ({
                             color: isActive ? "var(--button)" : "inherit",
                         })}
@@ -31,6 +33,7 @@ const Header = () => {
                 <li>
                     <NavLink
                         to={"/favorites"}
+                        className={css.link}
                         style={({ isActive }) => ({
                             color: isActive ? "var(--button)" : "inherit",
                         })}

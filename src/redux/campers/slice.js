@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-import { fetchCampers } from "./operations";
+import { fetchCampers, fetchFavoritesCampers } from "./operations";
 
 const handlePending = (state) => {
     state.loading = true;
@@ -21,6 +20,7 @@ const campersSlice = createSlice({
     name: "campers",
     initialState: {
         items: [],
+        favorites: [],
         loading: false,
         error: null,
         currentPage: 1,
@@ -29,6 +29,9 @@ const campersSlice = createSlice({
     reducers: {
         setPage: (state, action) => {
             state.currentPage = action.payload;
+        },
+        removeFavorite: (state, action) => {
+            state.favorites = state.favorites.filter((item) => item._id !== action.payload);
         },
     },
     extraReducers: (builder) =>
@@ -40,8 +43,16 @@ const campersSlice = createSlice({
                 state.currentPage = action.payload.page;
                 state.hasLoaded = true;
             })
-            .addCase(fetchCampers.rejected, handleRejected),
+            .addCase(fetchCampers.rejected, handleRejected)
+
+            .addCase(fetchFavoritesCampers.pending, handlePending)
+            .addCase(fetchFavoritesCampers.fulfilled, (state, action) => {
+                handleFulfilled(state);
+                const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+                state.favorites = action.payload.items.filter((item) => favorites.includes(item._id));
+            })
+            .addCase(fetchFavoritesCampers.rejected, handleRejected),
 });
 
-export const { setPage } = campersSlice.actions;
+export const { setPage, removeFavorite } = campersSlice.actions;
 export const campersReducer = campersSlice.reducer;

@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import clsx from "clsx";
 
 import { openModal } from "../../redux/modal/slice";
+import { removeFavorite } from "../../redux/campers/slice";
+
 import FeaturesItem from "../FeaturesItem/FeaturesItem";
 
 import icons from "../../images/icons.svg";
@@ -29,6 +31,7 @@ const CamperItem = ({ camperProps }) => {
             const updatedFavorites = favorites.filter((id) => id !== camperProps._id);
             localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
             setIsFavorite(false);
+            dispatch(removeFavorite(camperProps._id));
         } else {
             favorites.push(camperProps._id);
             localStorage.setItem("favorites", JSON.stringify(favorites));

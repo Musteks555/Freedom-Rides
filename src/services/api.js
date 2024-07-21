@@ -13,3 +13,9 @@ export const requestCampers = async (page = 1, limit = 4) => {
     });
     return data;
 };
+
+export const requestAllCampers = async () => {
+    const { data } = await instance.get("/Campers");
+
+    return data;
+};
